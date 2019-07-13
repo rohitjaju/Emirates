@@ -1,5 +1,6 @@
 #Assignment Q1
 Feature: Emirates Flight Booking
+@BookFlight
 Scenario Outline: User should be able to search the flight
 Given User opens application "https://www.emirates.com/ae/english/"
 When user selects "<departure>" and "<arrival>" destinations
