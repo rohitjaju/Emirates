@@ -12,8 +12,10 @@ import cucumber.api.java.After;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src\\features", glue = { "src/steps" }, plugin = { "pretty",
-		"html:src/target/cucumber-reports" }
+@CucumberOptions(features = "src/features", glue = { "src/steps" },
+plugin = { "pretty", "html:src/target/cucumber-reports" },
+monochrome = true,
+tags = {"@BookFlight"}
 // {"com.cucumber.listener.ExtentCucumberFormatter:src/target/cucumber-reports/report.html"}
 )
 
