@@ -38,11 +38,10 @@ public class assignments {
 	 		{
 		   		depart_date = driver.findElement(By.xpath("//section/div[4]/div[1]/div[3]/eol-datefield/eol-calendar/div/div/div[3]/table/tbody//tr//td[@data-date=day]"));
 		   		depart_date.click();
+		   		search_flights.click();
 	 
 	 		}
 	 
-
-
 	
 @Given("^User opens application \"([^\"]*)\"$")
 public void user_opens_application(String arg1) throws Throwable {
@@ -65,17 +64,24 @@ public void user_selects_flight_type_i_e_return_or_oneway(String type) throws Th
     throw new PendingException();
 }
 
-/*@When("^user selects the flight date multiple dates if flight is return/oneway$")
+@When("^user selects the flight date multiple dates if flight is return/oneway$")
 public void user_selects_the_flight_date_multiple_dates_if_flight_is_return_oneway() throws Throwable {
-    // Write code here that turns the phrase above into concrete actions
+	
+	depart_date.click();
+	search_flights.click();
+	
     throw new PendingException();
 }
 
 @Then("^Validate the Flight listing$")
 public void validate_the_Flight_listing() throws Throwable {
-    // Write code here that turns the phrase above into concrete actions
+	if(list_flights.isDisplayed())
+	System.out.println("Validated Flight Listing Successfully");
+	else {
+		System.out.println("Validated Flight Listing Failed");
+	}
     throw new PendingException();
-}*/
+}
 	
 
 	
