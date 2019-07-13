@@ -11,29 +11,23 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import java.lang.*;
+import java.util.concurrent.TimeUnit;
 
 public class assignments {
 	
 	 public static WebDriver driver;
-	//System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
-
-	//input[@id='womf-date-picker--depart']
-	//checkbox__input js-one-way control__one-way;
-
-
+	
+ 
+//Page Locators
 	 WebElement departure = driver.findElement(By.id("6cc1e7ce-e1b2-4256-a30a-f6f092fbfaf3"));
 	 WebElement arrival = driver.findElement(By.id("7da5cf9e-f8e0-485d-931e-7f881f2254df"));
 	 WebElement oneway_chk = driver.findElement(By.xpath("//input['@class='checkbox__input js-one-way control__one-way']"));
-	  
-	 //section/div[4]/div[1]/div[3]/eol-datefield/eol-calendar/div/div/div[3]/table/tbody//tr//td[@data-date='8']
-	 WebElement depart_date = driver.findElement(By.xpath("//*[@id='panel0']/div/div/div/div[2]/section/div[4]/div[1]/div[3]/eol-datefield/eol-calendar/div/div/div[3]/table/tbody//tr//td[@data-date='8']"));
-	 
+     WebElement depart_date = driver.findElement(By.xpath("//*[@id='panel0']/div/div/div/div[2]/section/div[4]/div[1]/div[3]/eol-datefield/eol-calendar/div/div/div[3]/table/tbody//tr//td[@data-date='8']"));	 
 	 WebElement search_flights = driver.findElement(By.xpath("//button//span[contains(text(),'Search flights')]"));
 	 WebElement list_flights = driver.findElement(By.xpath("//div[@id='ctl00_c_ctlOutBoundHdr_dvSortFilter']"));
 	 WebElement continue_to_passengers = driver.findElement(By.xpath("//a[@id='ctl00_c_lnkContinue']"));
 	 
-	 
-	 
+	 //Optional method to input flight dates
 	 public void input_flyDate(String day, WebElement depart_date)
 	 		{
 		   		depart_date = driver.findElement(By.xpath("//section/div[4]/div[1]/div[3]/eol-datefield/eol-calendar/div/div/div[3]/table/tbody//tr//td[@data-date=day]"));
@@ -41,12 +35,12 @@ public class assignments {
 		   		search_flights.click();
 	 
 	 		}
-	 
-	
+	 	
 @Given("^User opens application \"([^\"]*)\"$")
 public void user_opens_application(String arg1) throws Throwable {
 	System.setProperty("webdriver.chrome.driver", "C://Users//Rohit Jaju//Downloads//chromedriver_win32//chromedriver.exe");				
 	WebDriver driver = new ChromeDriver();
+	driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	driver.get(arg1);
     
 }
