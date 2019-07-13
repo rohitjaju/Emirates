@@ -1,0 +1,7 @@
+
+
+The Selenium cucumber framework can automate web applications as well as mobile applications.
+We can use selendroid library for android app automations.Same script structure with syntactical modifications 
+can be used to automate same scenario for web as well as mobile application.
+
+- Mobile Application automation requisites : APPIUM SDK/ selendroid library,JDK,Appium client library,APK app info
